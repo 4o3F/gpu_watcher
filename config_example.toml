@@ -1,0 +1,3 @@
+bark_urls = ["https://api.day.app/<KEY>/"]
+ntfy_urls = ["https://ntfy.sh/<TOPIC>/"]
+least_needed_gpu = 2
