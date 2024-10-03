@@ -38,7 +38,8 @@ async fn main() {
         while reciver.changed().await.is_ok() {
             if reciver.borrow().clone() {
                 if let Some(bark_urls) = &config.bark_urls {
-                    notify::notify_bark(bark_urls.clone(), "Enough GPU available".to_string()).await;
+                    notify::notify_bark(bark_urls.clone(), "Enough GPU available".to_string())
+                        .await;
                     break;
                 } else {
                     tracing::info!("No bark clients to inform");
@@ -60,7 +61,7 @@ async fn main() {
                     tracing::info!("No ntfy clients to inform");
                 }
                 break;
-            }   
+            }
         }
         tracing::info!("Done notifying ntfy");
     });
@@ -111,6 +112,22 @@ async fn main() {
             );
         }
         sleep(Duration::from_secs(30));
+    }
+
+    // Run exec_when_enough_gpu
+    if let Some(exec_when_enough_gpu) = config.exec_when_enough_gpu {
+        match Command::new("sh")
+            .arg("-c")
+            .arg(&exec_when_enough_gpu)
+            .output()
+        {
+            Ok(_) => {
+                tracing::info!("Executed {}", exec_when_enough_gpu);
+            }
+            Err(e) => {
+                tracing::error!("Failed to execute {}: {}", exec_when_enough_gpu, e);
+            }
+        }
     }
 
     while threads.join_next().await.is_some() {}

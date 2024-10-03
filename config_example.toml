@@ -1,3 +1,4 @@
 bark_urls = ["https://api.day.app/<KEY>/"]
 ntfy_urls = ["https://ntfy.sh/<TOPIC>/"]
 least_needed_gpu = 2
+exec_when_enough_gpu = "screen -S <sessionName> -p 0 -X stuff 'command^M'"

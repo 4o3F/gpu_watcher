@@ -5,6 +5,7 @@ pub struct Config {
     pub bark_urls: Option<Vec<String>>,
     pub ntfy_urls: Option<Vec<String>>,
     pub least_needed_gpu: Option<i32>,
+    pub exec_when_enough_gpu: Option<String>,
 }
 
 impl Config {
