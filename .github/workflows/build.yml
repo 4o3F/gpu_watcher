@@ -31,3 +31,4 @@ jobs:
           executable-name: gpu_watcher
           target: ${{ matrix.platform.target }}
           extra-files: 
+            README.md
