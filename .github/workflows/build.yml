@@ -11,6 +11,7 @@ jobs:
           - os_name: ubuntu-latest
             os: ubuntu-latest
             target: x86_64-unknown-linux-musl
+            release_for: Linux
 
     runs-on: ${{ matrix.platform.os }}
     steps:
@@ -28,4 +29,3 @@ jobs:
         with:
           binary-name: ubi
           target: ${{ matrix.platform.target }}
-        if: matrix.toolchain == 'stable'
