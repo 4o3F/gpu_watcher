@@ -28,4 +28,5 @@ jobs:
         uses: houseabsolute/actions-rust-release@v0
         with:
           binary-name: ubi
+          executable-name: gpu_watcher
           target: ${{ matrix.platform.target }}
