@@ -32,3 +32,5 @@ jobs:
           target: ${{ matrix.platform.target }}
           extra-files: 
             README.md
+          changes-file:
+            README.md
