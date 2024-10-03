@@ -30,3 +30,4 @@ jobs:
           binary-name: ubi
           executable-name: gpu_watcher
           target: ${{ matrix.platform.target }}
+          extra-files: 
